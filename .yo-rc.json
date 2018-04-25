@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Simon Ingeson",
+      "authorEmail": "simon.ingeson@gmail.com",
+      "authorUrl": "https://github.com/smonn"
+    }
+  }
+}
