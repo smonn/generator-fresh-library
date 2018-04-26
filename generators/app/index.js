@@ -107,6 +107,10 @@ module.exports = class extends Generator {
       }
     };
 
+    if (this.props.license === 'UNLICENSED') {
+      packageJSON.private = true;
+    }
+
     const babel = {
       presets: [(this.props.stage || '').substr(13)],
       ignore: [

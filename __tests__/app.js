@@ -19,7 +19,6 @@ describe('generator-fresh-library:app', () => {
     assert.file([
       'package.json',
       '.gitignore',
-      '.babelrc',
       'src/index.js',
       '__tests__/index.test.js'
     ]);
