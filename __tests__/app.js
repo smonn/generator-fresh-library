@@ -18,12 +18,23 @@ describe('generator-fresh-library:app', () => {
       stage: 'babel-stage-2',
       react: false,
       yarn: true,
-      eslint: false
+      eslint: true
     };
   });
 
   it('creates files with yarn', async () => {
-    prompts.eslint = true;
+    await run();
+
+    assert.file([
+      'package.json',
+      '.gitignore',
+      'src/index.js',
+      '__tests__/index.test.js'
+    ]);
+  });
+
+  it('creates files without eslint', async () => {
+    prompts.eslint = false;
 
     await run();
 
