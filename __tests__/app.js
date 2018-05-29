@@ -84,4 +84,18 @@ describe('generator-fresh-library:app', () => {
       '__tests__/index.test.js'
     ]);
   });
+
+  it('creates files with react and eslint', async () => {
+    prompts.react = true;
+    prompts.eslint = true;
+
+    await run();
+
+    assert.file([
+      'package.json',
+      '.gitignore',
+      'src/index.js',
+      '__tests__/index.test.js'
+    ]);
+  });
 });
