@@ -1,13 +1,9 @@
 language: node_js
 
-node_js:
-  - v10
-  - v8
-  - v6
-  - v4
+node_js: lts/*
 
 jobs:
   include:
     - stage: Produce Coverage
-      node_js: node
+      node_js: lts/*
       script: jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
