@@ -17,11 +17,14 @@ describe('generator-fresh-library:app', () => {
       license: 'MIT',
       stage: 'babel-stage-2',
       react: false,
-      yarn: true
+      yarn: true,
+      eslint: false
     };
   });
 
   it('creates files with yarn', async () => {
+    prompts.eslint = true;
+
     await run();
 
     assert.file([
@@ -34,6 +37,32 @@ describe('generator-fresh-library:app', () => {
 
   it('creates files without yarn', async () => {
     prompts.yarn = false;
+
+    await run();
+
+    assert.file([
+      'package.json',
+      '.gitignore',
+      'src/index.js',
+      '__tests__/index.test.js'
+    ]);
+  });
+
+  it('creates files when unlicensed', async () => {
+    prompts.license = 'UNLICENSED';
+
+    await run();
+
+    assert.file([
+      'package.json',
+      '.gitignore',
+      'src/index.js',
+      '__tests__/index.test.js'
+    ]);
+  });
+
+  it('creates files with react', async () => {
+    prompts.react = true;
 
     await run();
 
